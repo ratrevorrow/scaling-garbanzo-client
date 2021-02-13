@@ -18,12 +18,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "npm install typescript"
-                sh "npm install --force"
-                sh "npm run build"
-                sh "npm run dbuild"
-                sh "npm run dtag"
-                sh "npm run dpush"
+                sh "./build.sh"
             }
         }
         stage('Test') {
@@ -33,7 +28,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
                 sh "./deploy.sh"
             }
         }
