@@ -5,6 +5,7 @@ pipeline {
     //         args '-p 3006:80'
     //     } 
     // }
+    agent any
 
     stages {
         stage('Build') {
@@ -16,11 +17,11 @@ pipeline {
                 sh "npm run dpush"
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing..'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                echo 'TODO: Testing..'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
