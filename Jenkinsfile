@@ -19,7 +19,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh "npm install typescript"
-                sh "npm install -g typescript"
                 sh "npm install --force"
                 sh "npm run build"
                 sh "npm run dbuild"
