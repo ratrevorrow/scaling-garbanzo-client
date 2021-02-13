@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "npm install"
+                sh "npm install --force"
                 sh "npm run build"
                 sh "npm run dbuild"
                 sh "npm run dtag"
