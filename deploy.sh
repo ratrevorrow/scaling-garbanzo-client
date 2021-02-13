@@ -1,0 +1,1 @@
+ssh -i /vagrant/.vagrant/machines/prod/virtualbox/private_key vagrant@192.168.50.92 docker-compose -f /vagrant/compose/production/docker-compose.yml up -d --build

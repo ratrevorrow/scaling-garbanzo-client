@@ -19,6 +19,16 @@
   "scripts": {
     "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",
+    "dstart": "docker run -d --name dashboard -p 3006:80 dashboard",
+    "dbuild": "docker build --rm -f Dockerfile.prod -t dashboard .",
+    "dstop": "docker stop dashboard",
+    "drm": "docker rm dashboard",
+    "dsrm": "docker stop dashboard && docker rm dashboard",
+    "dtag": "docker tag dashboard rtrevorrow/dashboard:latest",
+    "dpush": "docker push rtrevorrow/dashboard:latest",
+    "drmilocal": "docker image rm dashboard:latest",
+    "drmirepo": "docker image rm rtrevorrow/dashboard:latest",
+    "dkill": "docker stop dashboard && docker rm dashboard && docker image rm dashboard",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
