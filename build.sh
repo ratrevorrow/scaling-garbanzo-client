@@ -5,7 +5,7 @@ rm -f package-lock.json/ || true
 npm cache clean --force
 # npm install react-scripts
 # npm install typescript
-npm install
+npm install # --legacy-peer-deps
 npm run build
 ls
 echo "PATH IS"

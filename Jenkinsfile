@@ -19,6 +19,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh "./build.sh"
+                sh "rm -rf node_modules/ || true"
+                sh "rm -f package-lock.json/ || true"
+                sh "npm cache clean --force"
+                sh "npm i"
             }
         }
         stage('Test') {
