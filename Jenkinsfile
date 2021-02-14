@@ -21,19 +21,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }                
+                // script {
+                //     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                // }                
                 sh "./build.sh"
                 // sh "rm -rf node_modules/ || true"
                 // sh "rm -f package-lock.json/ || true"
                 // sh "npm cache clean --force"
                 // sh "npm i"
-                script {
-                    docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push() 
-                    }
-                } 
+                // script {
+                //     docker.withRegistry( '', registryCredential ) { 
+                //         dockerImage.push() 
+                //     }
+                // } 
             }
         }
         stage('Test') {
@@ -43,8 +43,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "./deploy.sh"
-                
+                // sh "./deploy.sh"
+                sh "npm run dstart"
             }
         }
     }

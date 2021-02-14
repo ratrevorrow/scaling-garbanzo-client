@@ -10,6 +10,7 @@ npm run build
 ls
 echo "PATH IS"
 pwd
-docker build --rm -f Dockerfile.prod -t dashboard:latest .
-docker tag dashboard rtrevorrow/dashboard:latest
+npm run dbuild
+# docker build --rm -f Dockerfile.prod -t dashboard:latest .
+# docker tag dashboard rtrevorrow/dashboard:latest
 # docker push rtrevorrow/dashboard:latest
