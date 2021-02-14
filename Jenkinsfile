@@ -29,9 +29,11 @@ pipeline {
                 // sh "rm -f package-lock.json/ || true"
                 // sh "npm cache clean --force"
                 // sh "npm i"
-                docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                }
+                script {
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
             }
         }
         stage('Test') {
