@@ -2,6 +2,7 @@
 # newgrp docker
 rm -rf node_modules/ || true
 rm -f package-lock.json/ || true
+npm cache clean --force
 # npm install react-scripts
 # npm install typescript
 npm install
