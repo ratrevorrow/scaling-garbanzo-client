@@ -20,13 +20,17 @@ pipeline {
     }
     stages {
         stage('Cleaning project') {
-            sh "rm -rf node_modules/ || true"
-            sh "rm -f package-lock.json/ || true"
-            sh "npm cache clean --force"
-            sh "npm run dsrm || true"
+            steps {
+                sh "rm -rf node_modules/ || true"
+                sh "rm -f package-lock.json/ || true"
+                sh "npm cache clean --force"
+                sh "npm run dsrm || true"
+            }
         }
         stage('Installing dependencies') {
-            sh "npm install"
+            steps {
+                sh "npm install"
+            }
         }
         stage('Building project') {
             steps {
@@ -47,7 +51,9 @@ pipeline {
             }
         }
         stage('Building docker image') {
-            sh "npm run dbuild"
+            steps {
+                sh "npm run dbuild"
+            }
         }
         stage('Test') {
             steps {
