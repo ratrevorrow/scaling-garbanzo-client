@@ -19,12 +19,22 @@ pipeline {
         dockerImage = '' 
     }
     stages {
-        stage('Build') {
+        stage('Cleaning project') {
+            sh "rm -rf node_modules/ || true"
+            sh "rm -f package-lock.json/ || true"
+            sh "npm cache clean --force"
+            sh "npm run dsrm || true"
+        }
+        stage('Installing dependencies') {
+            sh "npm install"
+        }
+        stage('Building project') {
             steps {
                 // script {
                 //     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 // }                
-                sh "./build.sh"
+                // sh "./build.sh"
+                sh "npm run build"
                 // sh "rm -rf node_modules/ || true"
                 // sh "rm -f package-lock.json/ || true"
                 // sh "npm cache clean --force"
@@ -35,6 +45,9 @@ pipeline {
                 //     }
                 // } 
             }
+        }
+        stage('Building docker image') {
+            sh "npm run dbuild"
         }
         stage('Test') {
             steps {
