@@ -1,7 +1,9 @@
 # sudo usermod -a -G docker vagrant
 # newgrp docker
-npm install react-scripts
-npm install typescript
+rm -rf node_modules/ || true
+rm -f package-lock.json/ || true
+# npm install react-scripts
+# npm install typescript
 npm install
 npm run build
 ls
