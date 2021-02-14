@@ -12,4 +12,4 @@ echo "PATH IS"
 pwd
 docker build --rm -f Dockerfile.prod -t dashboard:latest .
 docker tag dashboard rtrevorrow/dashboard:latest
-docker push rtrevorrow/dashboard:latest
+# docker push rtrevorrow/dashboard:latest
