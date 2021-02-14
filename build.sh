@@ -1,5 +1,5 @@
-sudo usermod -a -G docker vagrant
-newgrp docker
+# sudo usermod -a -G docker vagrant
+# newgrp docker
 npm install --force
 npm run build
 ls
